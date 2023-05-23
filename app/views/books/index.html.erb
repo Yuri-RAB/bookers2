@@ -25,12 +25,20 @@
                                 <%= image_tag book.user.get_profile_image, size: "80x80" %>
                             <% end %>
                         </td>
+                        
                         <td>
                             <%= link_to book_path(book) do %>
                                 <%= book.title %>
                             <% end %>
                         </td>
+                        
                         <td><%= book.body %></td>
+                        
+                        <td><%= render 'favorites/favorite', model: book %></td>
+                        
+                        <td>
+                          コメント件数：<%= "#{book.book_comments.count}" %>
+                        </td>
                     </tr>
                     <% end %>
                 </tbody>
